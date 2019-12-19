@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Diet\n"
-"POT-Creation-Date: 2019-12-19 11:12+0900\n"
-"PO-Revision-Date: 2019-12-19 11:13+0900\n"
+"POT-Creation-Date: 2019-12-19 11:24+0900\n"
+"PO-Revision-Date: 2019-12-19 11:24+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: inc2734 <inc@2inc.org>\n"
 "Language: ja\n"
@@ -26,69 +26,73 @@ msgstr ""
 
 #. Plugin Name of the plugin/theme
 #: snow-monkey-diet.php:39 snow-monkey-diet.php:40 snow-monkey-diet.php:46
-#: snow-monkey-diet.php:92
+#: snow-monkey-diet.php:93
 msgid "Snow Monkey Diet"
 msgstr "Snow Monkey Diet"
 
-#: snow-monkey-diet.php:100
+#: snow-monkey-diet.php:101
 msgid "Disable widget areas"
 msgstr "ウィジェットエリアを無効化"
 
-#: snow-monkey-diet.php:112
+#: snow-monkey-diet.php:113
 msgid "Disable custom widgets"
 msgstr "カスタムウィジェットを無効化"
 
-#: snow-monkey-diet.php:124
+#: snow-monkey-diet.php:125
 msgid "Disable blog card"
 msgstr "ブログカードを無効化"
 
-#: snow-monkey-diet.php:136
+#: snow-monkey-diet.php:137
 msgid "Disable CSS from the customizer"
 msgstr "カスタマイザー由来の CSS を無効化"
 
-#: snow-monkey-diet.php:148
+#: snow-monkey-diet.php:149
 msgid "Disable hash navs"
 msgstr "ハッシュナビを無効化"
 
-#: snow-monkey-diet.php:160
+#: snow-monkey-diet.php:161
 msgid "Disable support forum widget on the dashboard"
 msgstr "ダッシュボードのサポートフォーラムウィジェットを無効化"
 
-#: snow-monkey-diet.php:172
+#: snow-monkey-diet.php:173
 msgid "Disable page top button"
 msgstr "ページトップへ戻るボタンを無効化"
 
-#: snow-monkey-diet.php:184
+#: snow-monkey-diet.php:185
 msgid "Disable share buttons"
 msgstr "シェアボタンを無効化"
 
-#: snow-monkey-diet.php:196
+#: snow-monkey-diet.php:197
 msgid "Disable nav menus"
 msgstr "ナビゲーションメニューを無効化"
 
-#: snow-monkey-diet.php:208
+#: snow-monkey-diet.php:209
 msgid "Disable SEO"
 msgstr "SEO 機能を無効化"
 
-#: snow-monkey-diet.php:220
+#: snow-monkey-diet.php:221
 msgid "Disable like me box"
 msgstr "いいね！ボックスを無効化"
 
-#: snow-monkey-diet.php:232
+#: snow-monkey-diet.php:233
 msgid "Disable profile box"
 msgstr "プロフィールボックスを無効化"
 
-#: snow-monkey-diet.php:244
+#: snow-monkey-diet.php:245
 msgid "Disable related posts"
 msgstr "関連記事を無効化"
 
-#: snow-monkey-diet.php:256
+#: snow-monkey-diet.php:257
 msgid "Disable prev/next nav"
 msgstr "前後ナビを無効化"
 
-#: snow-monkey-diet.php:268
+#: snow-monkey-diet.php:269
 msgid "Disable infobar"
 msgstr "お知らせバーを無効化"
+
+#: snow-monkey-diet.php:281
+msgid "Disable smooth scroll"
+msgstr "スムーススクロールを無効化"
 
 #. Description of the plugin/theme
 msgid "You can stop unused functions of the Snow Monkey."

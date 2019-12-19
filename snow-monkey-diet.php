@@ -62,7 +62,7 @@ class Bootstrap {
 			'snow-monkey-diet',
 			'snow-monkey-diet',
 			function( $option ) {
-				$get_posted_option = function( $key ) use( $option ) {
+				$get_posted_option = function( $key ) use ( $option ) {
 					return isset( $option[ $key ] ) && '1' === $option[ $key ] ? (int) $option[ $key ] : false;
 				};
 
@@ -83,6 +83,7 @@ class Bootstrap {
 					'disable-related-posts'        => $get_posted_option( 'disable-related-posts' ),
 					'disable-prev-next-nav'        => $get_posted_option( 'disable-prev-next-nav' ),
 					'disable-infobar'              => $get_posted_option( 'disable-infobar' ),
+					'disable-smooth-scroll'        => $get_posted_option( 'disable-smooth-scroll' ),
 				];
 			}
 		);
@@ -274,6 +275,18 @@ class Bootstrap {
 			'snow-monkey-diet',
 			'snow-monkey-diet-disable'
 		);
+
+		add_settings_field(
+			'disable-smooth-scroll',
+			__( 'Disable smooth scroll', 'snow-monkey-diet' ),
+			function() {
+				?>
+				<input type="checkbox" name="snow-monkey-diet[disable-smooth-scroll]" value="1" <?php checked( 1, $this->_get_option( 'disable-smooth-scroll' ) ); ?>>
+				<?php
+			},
+			'snow-monkey-diet',
+			'snow-monkey-diet-disable'
+		);
 	}
 
 	public function _deisable() {
@@ -345,6 +358,10 @@ class Bootstrap {
 		if ( 1 === $this->_get_option( 'disable-infobar' ) ) {
 			add_action( 'snow_monkey_get_template_part_app/customizer/infobar/section', '__return_false' );
 			add_action( 'snow_monkey_get_template_part_template-parts/common/infobar', '__return_false' );
+		}
+
+		if ( 1 === $this->_get_option( 'disable-smooth-scroll' ) ) {
+			add_action( 'snow_monkey_get_template_part_app/setup/smooth-scroll', '__return_false' );
 		}
 	}
 
