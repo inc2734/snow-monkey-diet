@@ -33,3 +33,13 @@ before_deploy:
 - npm run zip
 - ls -la snow-monkey-diet.zip
 - export RELEASE_FILE=$(ls snow-monkey-diet.zip)
+deploy:
+  provider: releases
+  api_key:
+    secure: E1utDqEGg2tt6hN1/EruWmrYBDk2rD9UIixs/TdX+Mr01t+CE7Um28UySFRUwRr9MIvCjjJQtCV03uAmxgg5rXdpX/zfo1uDYGeyWJA5UJuy0OF3QPKcysyrtpwE1oo+flc6iCyUypKvt2c33JSr72qk3GbpLD9Xc0HAtSbeqpuAQGJmLoqVnRS75KORoYqe6R/JBQ/KPeS3D4KTtZ0i8n0yaP4oD5oeo6o9mJs0F7YDzv2Ks51sbvVEOdOftuVOjkEsy9UzmKoJL9xg71VWaG4//l70pT94no8ym3JAVBYDElnFS/1KLwwpYVGKR+7S72MvSOV7ipvG47amKUo/wIS3KYERz9v9hEhqBtfYMU4l2GplwxPfuNJR6ksJszdFmSGQ9TeEtTxLFyvQE63k6YkiqX0/co9EO6HFndLrIn7nXx8qNuUxTDrSJCGJCtTWNMffiff0YWZzMAsbIrI1k7nI35fbmPcisqEQhkLNVTuhuYqEWzz/1ZYKNIFpcqaQBnSKeSbAMYdapTVrBMmhB0tf6rnIpbVDew0xXVGTkhYZw5HYMVNoGVbemgULT3DY5GqV9mBr+PNyyDUAaB0KMCiFpOpod1Q4zZOvQOgGZ2zTCrzi3ciS534oLsXjcP9KKzlpJpbjF7hygNnFc1P7oujhVEsqN51j3ricXFbTo4A=
+  file: "${RELEASE_FILE}"
+  skip_cleanup: true
+  on:
+    tags: true
+    php: 7.3
+    repo: inc2734/snow-monkey-diet
