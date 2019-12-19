@@ -1,0 +1,103 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Snow Monkey Diet\n"
+"POT-Creation-Date: 2019-12-19 11:12+0900\n"
+"PO-Revision-Date: 2019-12-19 11:13+0900\n"
+"Last-Translator: inc2734 <inc@2inc.org>\n"
+"Language-Team: inc2734 <inc@2inc.org>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.4\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: snow-monkey-diet.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SearchPathExcluded-1: node_modules\n"
+"X-Poedit-SearchPathExcluded-2: vendor\n"
+"X-Poedit-SearchPathExcluded-3: bin\n"
+
+#. Plugin Name of the plugin/theme
+#: snow-monkey-diet.php:39 snow-monkey-diet.php:40 snow-monkey-diet.php:46
+#: snow-monkey-diet.php:92
+msgid "Snow Monkey Diet"
+msgstr "Snow Monkey Diet"
+
+#: snow-monkey-diet.php:100
+msgid "Disable widget areas"
+msgstr "ウィジェットエリアを無効化"
+
+#: snow-monkey-diet.php:112
+msgid "Disable custom widgets"
+msgstr "カスタムウィジェットを無効化"
+
+#: snow-monkey-diet.php:124
+msgid "Disable blog card"
+msgstr "ブログカードを無効化"
+
+#: snow-monkey-diet.php:136
+msgid "Disable CSS from the customizer"
+msgstr "カスタマイザー由来の CSS を無効化"
+
+#: snow-monkey-diet.php:148
+msgid "Disable hash navs"
+msgstr "ハッシュナビを無効化"
+
+#: snow-monkey-diet.php:160
+msgid "Disable support forum widget on the dashboard"
+msgstr "ダッシュボードのサポートフォーラムウィジェットを無効化"
+
+#: snow-monkey-diet.php:172
+msgid "Disable page top button"
+msgstr "ページトップへ戻るボタンを無効化"
+
+#: snow-monkey-diet.php:184
+msgid "Disable share buttons"
+msgstr "シェアボタンを無効化"
+
+#: snow-monkey-diet.php:196
+msgid "Disable nav menus"
+msgstr "ナビゲーションメニューを無効化"
+
+#: snow-monkey-diet.php:208
+msgid "Disable SEO"
+msgstr "SEO 機能を無効化"
+
+#: snow-monkey-diet.php:220
+msgid "Disable like me box"
+msgstr "いいね！ボックスを無効化"
+
+#: snow-monkey-diet.php:232
+msgid "Disable profile box"
+msgstr "プロフィールボックスを無効化"
+
+#: snow-monkey-diet.php:244
+msgid "Disable related posts"
+msgstr "関連記事を無効化"
+
+#: snow-monkey-diet.php:256
+msgid "Disable prev/next nav"
+msgstr "前後ナビを無効化"
+
+#: snow-monkey-diet.php:268
+msgid "Disable infobar"
+msgstr "お知らせバーを無効化"
+
+#. Description of the plugin/theme
+msgid "You can stop unused functions of the Snow Monkey."
+msgstr "あなたが Snow Monkey で試用していない機能を無効化できます。"
+
+#. Author of the plugin/theme
+msgid "inc2734"
+msgstr "inc2734"
+
+#. Author URI of the plugin/theme
+msgid "https://2inc.org"
+msgstr "https://2inc.org"
