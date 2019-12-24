@@ -84,6 +84,7 @@ class Bootstrap {
 					'disable-prev-next-nav'        => $get_posted_option( 'disable-prev-next-nav' ),
 					'disable-infobar'              => $get_posted_option( 'disable-infobar' ),
 					'disable-smooth-scroll'        => $get_posted_option( 'disable-smooth-scroll' ),
+					'disable-advertisement'        => $get_posted_option( 'disable-advertisement' ),
 				];
 			}
 		);
@@ -287,6 +288,18 @@ class Bootstrap {
 			'snow-monkey-diet',
 			'snow-monkey-diet-disable'
 		);
+
+		add_settings_field(
+			'disable-advertisement',
+			__( 'Disable advertisement', 'snow-monkey-diet' ),
+			function() {
+				?>
+				<input type="checkbox" name="snow-monkey-diet[disable-advertisement]" value="1" <?php checked( 1, $this->_get_option( 'disable-advertisement' ) ); ?>>
+				<?php
+			},
+			'snow-monkey-diet',
+			'snow-monkey-diet-disable'
+		);
 	}
 
 	public function _deisable() {
@@ -362,6 +375,13 @@ class Bootstrap {
 
 		if ( 1 === $this->_get_option( 'disable-smooth-scroll' ) ) {
 			add_action( 'snow_monkey_get_template_part_app/setup/smooth-scroll', '__return_false' );
+		}
+
+		if ( 1 === $this->_get_option( 'disable-advertisement' ) ) {
+			add_action( 'snow_monkey_get_template_part_app/customizer/advertisement/section', '__return_false' );
+			add_action( 'snow_monkey_get_template_part_app/setup/google-adsense', '__return_false' );
+			add_action( 'snow_monkey_get_template_part_app/setup/google-infeed-ads', '__return_false' );
+			add_action( 'snow_monkey_get_template_part_template-parts/common/google-adsense', '__return_false' );
 		}
 	}
 
