@@ -28,10 +28,51 @@ class Bootstrap {
 	public function _plugins_loaded() {
 		load_plugin_textdomain( 'snow-monkey-diet', false, basename( __DIR__ ) . '/languages' );
 
+		$theme = wp_get_theme( get_template() );
+		if ( 'snow-monkey' !== $theme->template && 'snow-monkey/resources' !== $theme->template ) {
+			add_action( 'admin_notices', [ $this, '_admin_notice_no_snow_monkey' ] );
+			return;
+		}
+
+		if ( ! version_compare( $theme->get( 'Version' ), '9.0.0', '>=' ) ) {
+			add_action( 'admin_notices', [ $this, '_admin_notice_invalid_snow_monkey_version' ] );
+			return;
+		}
+
 		add_action( 'admin_menu', [ $this, '_admin_menu' ] );
 		add_action( 'admin_init', [ $this, '_admin_init' ] );
 
 		$this->_deisable();
+	}
+
+	/**
+	 * Admin notice for no Snow Monkey
+	 *
+	 * @return void
+	 */
+	public function _admin_notice_no_snow_monkey() {
+		?>
+		<div class="notice notice-warning is-dismissible">
+			<p>
+				<?php esc_html_e( '[Snow Monkey Diet] Needs the Snow Monkey.', 'snow-monkey-diet' ); ?>
+			</p>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Admin notice for invalid Snow Monkey version
+	 *
+	 * @return void
+	 */
+	public function _admin_notice_invalid_snow_monkey_version() {
+		?>
+		<div class="notice notice-warning is-dismissible">
+			<p>
+				<?php esc_html_e( '[Snow Monkey Diet] Needs the Snow Monkey v9.0.0 or more.', 'snow-monkey-diet' ); ?>
+			</p>
+		</div>
+		<?php
 	}
 
 	public function _admin_menu() {
@@ -44,6 +85,9 @@ class Bootstrap {
 				?>
 				<div class="wrap">
 					<h1><?php esc_html_e( 'Snow Monkey Diet', 'snow-monkey-diet' ); ?></h1>
+					<p>
+						<?php esc_html_e( 'Suspended setting items may need to be re-setting when re-enabled.', 'snow-monkey-diet' ); ?>
+					</p>
 					<form method="post" action="options.php">
 						<?php
 							settings_fields( 'snow-monkey-diet' );
@@ -91,7 +135,7 @@ class Bootstrap {
 
 		add_settings_section(
 			'snow-monkey-diet-disable',
-			__( 'Snow Monkey Diet', 'snow-monkey-diet' ),
+			__( 'Settings', 'snow-monkey-diet' ),
 			function() {
 			},
 			'snow-monkey-diet'
