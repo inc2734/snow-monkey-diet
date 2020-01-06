@@ -16,6 +16,8 @@
 
 namespace Snow_Monkey\Plugin\Diet;
 
+use Inc2734\WP_GitHub_Plugin_Updater\Bootstrap as Updater;
+
 define( 'SNOW_MONKEY_DIET_URL', untrailingslashit( plugin_dir_url( __FILE__ ) ) );
 define( 'SNOW_MONKEY_DIET_PATH', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
 
@@ -27,6 +29,8 @@ class Bootstrap {
 
 	public function _plugins_loaded() {
 		load_plugin_textdomain( 'snow-monkey-diet', false, basename( __DIR__ ) . '/languages' );
+
+		add_action( 'init', [ $this, '_activate_autoupdate' ] );
 
 		$theme = wp_get_theme( get_template() );
 		if ( 'snow-monkey' !== $theme->template && 'snow-monkey/resources' !== $theme->template ) {
@@ -432,6 +436,19 @@ class Bootstrap {
 	protected function _get_option( $key ) {
 		$option = get_option( 'snow-monkey-diet' );
 		return isset( $option[ $key ] ) ? (int) $option[ $key ] : false;
+	}
+
+	/**
+	 * Activate auto update using GitHub
+	 *
+	 * @return void
+	 */
+	public function _activate_autoupdate() {
+		new Updater(
+			plugin_basename( __FILE__ ),
+			'inc2734',
+			'snow-monkey-diet'
+		);
 	}
 }
 
