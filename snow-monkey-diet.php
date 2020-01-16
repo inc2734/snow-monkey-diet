@@ -110,30 +110,34 @@ class Bootstrap {
 			'snow-monkey-diet',
 			'snow-monkey-diet',
 			function( $option ) {
-				$get_posted_option = function( $key ) use ( $option ) {
-					return isset( $option[ $key ] ) && '1' === $option[ $key ] ? (int) $option[ $key ] : false;
-				};
-
-				return [
-					'disable-widget-areas'         => $get_posted_option( 'disable-widget-areas' ),
-					'disable-custom-widgets'       => $get_posted_option( 'disable-custom-widgets' ),
-					'disable-blog-card'            => $get_posted_option( 'disable-blog-card' ),
-					'disable-customizer-styles'    => $get_posted_option( 'disable-customizer-styles' ),
-					'disable-hash-nav'             => $get_posted_option( 'disable-hash-nav' ),
-					'disable-support-forum-widget' => $get_posted_option( 'disable-support-forum-widget' ),
-					'disable-page-top'             => $get_posted_option( 'disable-page-top' ),
-					'disable-share-buttons'        => $get_posted_option( 'disable-share-buttons' ),
-					'disable-nav-menus'            => $get_posted_option( 'disable-nav-menus' ),
-					'disable-seo'                  => $get_posted_option( 'disable-seo' ),
-					'disable-like-me-box'          => $get_posted_option( 'disable-like-me-box' ),
-					'disable-profile-box'          => $get_posted_option( 'disable-profile-box' ),
-					'disable-related-posts'        => $get_posted_option( 'disable-related-posts' ),
-					'disable-related-posts'        => $get_posted_option( 'disable-related-posts' ),
-					'disable-prev-next-nav'        => $get_posted_option( 'disable-prev-next-nav' ),
-					'disable-infobar'              => $get_posted_option( 'disable-infobar' ),
-					'disable-smooth-scroll'        => $get_posted_option( 'disable-smooth-scroll' ),
-					'disable-advertisement'        => $get_posted_option( 'disable-advertisement' ),
+				$default_option = [
+					'disable-widget-areas'         => false,
+					'disable-custom-widgets'       => false,
+					'disable-blog-card'            => false,
+					'disable-customizer-styles'    => false,
+					'disable-hash-nav'             => false,
+					'disable-support-forum-widget' => false,
+					'disable-page-top'             => false,
+					'disable-share-buttons'        => false,
+					'disable-nav-menus'            => false,
+					'disable-seo'                  => false,
+					'disable-like-me-box'          => false,
+					'disable-profile-box'          => false,
+					'disable-related-posts'        => false,
+					'disable-related-posts'        => false,
+					'disable-prev-next-nav'        => false,
+					'disable-infobar'              => false,
+					'disable-smooth-scroll'        => false,
+					'disable-advertisement'        => false,
+					'disable-community'            => false,
 				];
+
+				$new_option = [];
+				foreach ( $default_option as $key => $value ) {
+					$new_option[ $key ] = ! empty( $option[ $key ] ) ? 1 : $value;
+				}
+
+				return $new_option;
 			}
 		);
 
@@ -348,6 +352,18 @@ class Bootstrap {
 			'snow-monkey-diet',
 			'snow-monkey-diet-disable'
 		);
+
+		add_settings_field(
+			'disable-community',
+			__( 'Disable Snow Monkey Community section in customizer', 'snow-monkey-diet' ),
+			function() {
+				?>
+				<input type="checkbox" name="snow-monkey-diet[disable-community]" value="1" <?php checked( 1, $this->_get_option( 'disable-community' ) ); ?>>
+				<?php
+			},
+			'snow-monkey-diet',
+			'snow-monkey-diet-disable'
+		);
 	}
 
 	public function _deisable() {
@@ -430,6 +446,10 @@ class Bootstrap {
 			add_action( 'snow_monkey_get_template_part_app/setup/google-adsense', '__return_false' );
 			add_action( 'snow_monkey_get_template_part_app/setup/google-infeed-ads', '__return_false' );
 			add_action( 'snow_monkey_get_template_part_template-parts/common/google-adsense', '__return_false' );
+		}
+
+		if ( 1 === $this->_get_option( 'disable-community' ) ) {
+			add_action( 'snow_monkey_get_template_part_app/customizer/snow-monkey-community/section', '__return_false' );
 		}
 	}
 
