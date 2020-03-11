@@ -46,7 +46,7 @@ class Bootstrap {
 		add_action( 'admin_menu', [ $this, '_admin_menu' ] );
 		add_action( 'admin_init', [ $this, '_admin_init' ] );
 
-		$this->_deisable();
+		$this->_disable();
 	}
 
 	/**
@@ -366,7 +366,7 @@ class Bootstrap {
 		);
 	}
 
-	public function _deisable() {
+	public function _disable() {
 		if ( 1 === $this->_get_option( 'disable-widget-areas' ) ) {
 			add_action( 'snow_monkey_get_template_part_app/setup/widget-area', '__return_false' );
 		}
