@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Diet\n"
-"POT-Creation-Date: 2020-01-16 14:15+0900\n"
-"PO-Revision-Date: 2020-01-16 14:15+0900\n"
+"POT-Creation-Date: 2020-03-11 13:38+0900\n"
+"PO-Revision-Date: 2020-03-11 13:38+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: inc2734 <inc@2inc.org>\n"
 "Language: ja\n"
@@ -120,7 +120,7 @@ msgstr "カスタマイザーの「Snow Monkey コミュニティ」セクショ
 
 #. Description of the plugin/theme
 msgid "You can stop unused functions of the Snow Monkey."
-msgstr "あなたが Snow Monkey で試用していない機能を無効化できます。"
+msgstr "あなたが Snow Monkey で使用していない機能を無効化できます。"
 
 #. Author of the plugin/theme
 msgid "inc2734"
