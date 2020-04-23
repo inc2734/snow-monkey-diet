@@ -2,7 +2,7 @@
 /**
  * Plugin name: Snow Monkey Diet
  * Description: You can stop unused functions of the Snow Monkey.
- * Version: 0.5.0
+ * Version: 0.5.1
  * Author: inc2734
  * Author URI: https://2inc.org
  * License: GPL2 or later
@@ -38,7 +38,7 @@ class Bootstrap {
 			return;
 		}
 
-		if ( ! version_compare( $theme->get( 'Version' ), '9.0.0', '>=' ) ) {
+		if ( ! version_compare( $theme->get( 'Version' ), '10.2.0', '>=' ) ) {
 			add_action( 'admin_notices', [ $this, '_admin_notice_invalid_snow_monkey_version' ] );
 			return;
 		}
@@ -73,7 +73,13 @@ class Bootstrap {
 		?>
 		<div class="notice notice-warning is-dismissible">
 			<p>
-				<?php esc_html_e( '[Snow Monkey Diet] Needs the Snow Monkey v9.0.0 or more.', 'snow-monkey-diet' ); ?>
+				<?php
+				echo sprintf(
+					// translators: %1$s: version
+					esc_html_e( '[Snow Monkey Diet] Needs the Snow Monkey %1$s or more.', 'snow-monkey-diet' ),
+					'v10.2.0'
+				);
+				?>
 			</p>
 		</div>
 		<?php
