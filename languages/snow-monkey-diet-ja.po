@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Snow Monkey Diet\n"
-"POT-Creation-Date: 2020-03-11 13:38+0900\n"
-"PO-Revision-Date: 2020-03-11 13:38+0900\n"
+"POT-Creation-Date: 2020-04-23 15:14+0900\n"
+"PO-Revision-Date: 2020-04-23 15:14+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: inc2734 <inc@2inc.org>\n"
 "Language: ja\n"
@@ -42,79 +42,83 @@ msgid "Suspended setting items may need to be re-setting when re-enabled."
 msgstr ""
 "停止した設定は、再度有効化したときに再設定が必要になる場合があります。"
 
-#: snow-monkey-diet.php:146
+#: snow-monkey-diet.php:147
 msgid "Settings"
 msgstr "設定"
 
-#: snow-monkey-diet.php:154
+#: snow-monkey-diet.php:155
 msgid "Disable widget areas"
 msgstr "ウィジェットエリアを無効化"
 
-#: snow-monkey-diet.php:166
+#: snow-monkey-diet.php:167
 msgid "Disable custom widgets"
 msgstr "カスタムウィジェットを無効化"
 
-#: snow-monkey-diet.php:178
+#: snow-monkey-diet.php:179
+msgid "Disable drop navigation"
+msgstr "ドロップナビゲーションを無効化"
+
+#: snow-monkey-diet.php:191
 msgid "Disable blog card"
 msgstr "ブログカードを無効化"
 
-#: snow-monkey-diet.php:190
+#: snow-monkey-diet.php:203
 msgid "Disable CSS from the customizer"
 msgstr "カスタマイザー由来の CSS を無効化"
 
-#: snow-monkey-diet.php:202
+#: snow-monkey-diet.php:215
 msgid "Disable hash navs"
 msgstr "ハッシュナビを無効化"
 
-#: snow-monkey-diet.php:214
+#: snow-monkey-diet.php:227
 msgid "Disable support forum widget on the dashboard"
 msgstr "ダッシュボードのサポートフォーラムウィジェットを無効化"
 
-#: snow-monkey-diet.php:226
+#: snow-monkey-diet.php:239
 msgid "Disable page top button"
 msgstr "ページトップへ戻るボタンを無効化"
 
-#: snow-monkey-diet.php:238
+#: snow-monkey-diet.php:251
 msgid "Disable share buttons"
 msgstr "シェアボタンを無効化"
 
-#: snow-monkey-diet.php:250
+#: snow-monkey-diet.php:263
 msgid "Disable nav menus"
 msgstr "ナビゲーションメニューを無効化"
 
-#: snow-monkey-diet.php:262
+#: snow-monkey-diet.php:275
 msgid "Disable SEO"
 msgstr "SEO 機能を無効化"
 
-#: snow-monkey-diet.php:274
+#: snow-monkey-diet.php:287
 msgid "Disable like me box"
 msgstr "いいね！ボックスを無効化"
 
-#: snow-monkey-diet.php:286
+#: snow-monkey-diet.php:299
 msgid "Disable profile box"
 msgstr "プロフィールボックスを無効化"
 
-#: snow-monkey-diet.php:298
+#: snow-monkey-diet.php:311
 msgid "Disable related posts"
 msgstr "関連記事を無効化"
 
-#: snow-monkey-diet.php:310
+#: snow-monkey-diet.php:323
 msgid "Disable prev/next nav"
 msgstr "前後ナビを無効化"
 
-#: snow-monkey-diet.php:322
+#: snow-monkey-diet.php:335
 msgid "Disable infobar"
 msgstr "お知らせバーを無効化"
 
-#: snow-monkey-diet.php:334
+#: snow-monkey-diet.php:347
 msgid "Disable smooth scroll"
 msgstr "スムーススクロールを無効化"
 
-#: snow-monkey-diet.php:346
+#: snow-monkey-diet.php:359
 msgid "Disable advertisement"
 msgstr "広告を無効化"
 
-#: snow-monkey-diet.php:358
+#: snow-monkey-diet.php:371
 msgid "Disable Snow Monkey Community section in customizer"
 msgstr "カスタマイザーの「Snow Monkey コミュニティ」セクションを無効化"
 

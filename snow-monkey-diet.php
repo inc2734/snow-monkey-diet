@@ -113,6 +113,7 @@ class Bootstrap {
 				$default_option = [
 					'disable-widget-areas'         => false,
 					'disable-custom-widgets'       => false,
+					'disable-drop-nav'             => false,
 					'disable-blog-card'            => false,
 					'disable-customizer-styles'    => false,
 					'disable-hash-nav'             => false,
@@ -167,6 +168,18 @@ class Bootstrap {
 			function() {
 				?>
 				<input type="checkbox" name="snow-monkey-diet[disable-custom-widgets]" value="1" <?php checked( 1, $this->_get_option( 'disable-custom-widgets' ) ); ?>>
+				<?php
+			},
+			'snow-monkey-diet',
+			'snow-monkey-diet-disable'
+		);
+
+		add_settings_field(
+			'disable-drop-nav',
+			__( 'Disable drop navigation', 'snow-monkey-diet' ),
+			function() {
+				?>
+				<input type="checkbox" name="snow-monkey-diet[disable-drop-nav]" value="1" <?php checked( 1, $this->_get_option( 'disable-drop-nav' ) ); ?>>
 				<?php
 			},
 			'snow-monkey-diet',
@@ -373,6 +386,11 @@ class Bootstrap {
 
 		if ( 1 === $this->_get_option( 'disable-custom-widgets' ) ) {
 			add_action( 'snow_monkey_get_template_part_app/setup/widgets', '__return_false' );
+		}
+
+		if ( 1 === $this->_get_option( 'disable-drop-nav' ) ) {
+			add_action( 'snow_monkey_get_template_part_app/setup/drop-nav', '__return_false' );
+			add_filter( 'snow_monkey_has_drop_nav', '__return_false' );
 		}
 
 		if ( 1 === $this->_get_option( 'disable-blog-card' ) ) {
