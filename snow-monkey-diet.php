@@ -76,7 +76,7 @@ class Bootstrap {
 				<?php
 				echo sprintf(
 					// translators: %1$s: version
-					esc_html_e( '[Snow Monkey Diet] Needs the Snow Monkey %1$s or more.', 'snow-monkey-diet' ),
+					esc_html__( '[Snow Monkey Diet] Needs the Snow Monkey %1$s or more.', 'snow-monkey-diet' ),
 					'v10.2.0'
 				);
 				?>
