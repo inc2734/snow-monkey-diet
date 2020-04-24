@@ -2,7 +2,7 @@
 /**
  * Plugin name: Snow Monkey Diet
  * Description: You can stop unused functions of the Snow Monkey.
- * Version: 0.5.1
+ * Version: 0.5.2
  * Author: inc2734
  * Author URI: https://2inc.org
  * License: GPL2 or later
