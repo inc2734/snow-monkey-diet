@@ -38,7 +38,7 @@ class Bootstrap {
 			return;
 		}
 
-		if ( ! version_compare( $theme->get( 'Version' ), '10.2.0', '>=' ) ) {
+		if ( ! version_compare( $theme->get( 'Version' ), '10.2.4', '>=' ) ) {
 			add_action( 'admin_notices', [ $this, '_admin_notice_invalid_snow_monkey_version' ] );
 			return;
 		}
@@ -77,7 +77,7 @@ class Bootstrap {
 				echo sprintf(
 					// translators: %1$s: version
 					esc_html__( '[Snow Monkey Diet] Needs the Snow Monkey %1$s or more.', 'snow-monkey-diet' ),
-					'v10.2.0'
+					'v10.2.4'
 				);
 				?>
 			</p>
@@ -136,6 +136,7 @@ class Bootstrap {
 					'disable-infobar'              => false,
 					'disable-smooth-scroll'        => false,
 					'disable-advertisement'        => false,
+					'disable-theme-color'          => false,
 					'disable-community'            => false,
 				];
 
@@ -373,6 +374,18 @@ class Bootstrap {
 		);
 
 		add_settings_field(
+			'disable-theme-color',
+			__( 'Disable mobile device browser color', 'snow-monkey-diet' ),
+			function() {
+				?>
+				<input type="checkbox" name="snow-monkey-diet[disable-theme-color]" value="1" <?php checked( 1, $this->_get_option( 'disable-theme-color' ) ); ?>>
+				<?php
+			},
+			'snow-monkey-diet',
+			'snow-monkey-diet-disable'
+		);
+
+		add_settings_field(
 			'disable-community',
 			__( 'Disable Snow Monkey Community section in customizer', 'snow-monkey-diet' ),
 			function() {
@@ -470,6 +483,10 @@ class Bootstrap {
 			add_action( 'snow_monkey_get_template_part_app/setup/google-adsense', '__return_false' );
 			add_action( 'snow_monkey_get_template_part_app/setup/google-infeed-ads', '__return_false' );
 			add_action( 'snow_monkey_get_template_part_template-parts/common/google-adsense', '__return_false' );
+		}
+
+		if ( 1 === $this->_get_option( 'disable-theme-color' ) ) {
+			add_action( 'snow_monkey_get_template_part_app/setup/theme-color', '__return_false' );
 		}
 
 		if ( 1 === $this->_get_option( 'disable-community' ) ) {
