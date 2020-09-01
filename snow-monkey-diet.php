@@ -3,6 +3,9 @@
  * Plugin name: Snow Monkey Diet
  * Description: You can stop unused functions of the Snow Monkey.
  * Version: 0.5.3
+ * Tested up to: 5.5
+ * Requires at least: 5.5
+ * Requires PHP: 5.6
  * Author: inc2734
  * Author URI: https://2inc.org
  * License: GPL2 or later
@@ -38,7 +41,7 @@ class Bootstrap {
 			return;
 		}
 
-		if ( ! version_compare( $theme->get( 'Version' ), '10.2.4', '>=' ) ) {
+		if ( ! version_compare( $theme->get( 'Version' ), '11.1.0', '>=' ) ) {
 			add_action( 'admin_notices', [ $this, '_admin_notice_invalid_snow_monkey_version' ] );
 			return;
 		}
@@ -77,7 +80,7 @@ class Bootstrap {
 				echo sprintf(
 					// translators: %1$s: version
 					esc_html__( '[Snow Monkey Diet] Needs the Snow Monkey %1$s or more.', 'snow-monkey-diet' ),
-					'v10.2.4'
+					'v11.1.0'
 				);
 				?>
 			</p>
@@ -400,97 +403,200 @@ class Bootstrap {
 
 	public function _disable() {
 		if ( 1 === $this->_get_option( 'disable-widget-areas' ) ) {
-			add_action( 'snow_monkey_get_template_part_app/setup/widget-area', '__return_false' );
+			add_filter(
+				'snow_monkey_pre_template_part_render_app/setup/widget-area',
+				'__return_false'
+			);
 		}
 
 		if ( 1 === $this->_get_option( 'disable-custom-widgets' ) ) {
-			add_action( 'snow_monkey_get_template_part_app/setup/widgets', '__return_false' );
+			add_filter(
+				'snow_monkey_pre_template_part_render_app/setup/widgets',
+				'__return_false'
+			);
 		}
 
 		if ( 1 === $this->_get_option( 'disable-drop-nav' ) ) {
-			add_action( 'snow_monkey_get_template_part_app/setup/drop-nav', '__return_false' );
+			add_filter(
+				'snow_monkey_pre_template_part_render_app/setup/drop-nav',
+				'__return_false'
+			);
 			add_filter( 'snow_monkey_has_drop_nav', '__return_false' );
 		}
 
 		if ( 1 === $this->_get_option( 'disable-blog-card' ) ) {
-			add_action( 'snow_monkey_get_template_part_app/setup/oembed', '__return_false' );
+			add_filter(
+				'snow_monkey_pre_template_part_render_app/setup/oembed',
+				'__return_false'
+			);
 		}
 
 		if ( 1 === $this->_get_option( 'disable-customizer-styles' ) ) {
-			add_action( 'snow_monkey_get_template_part_app/setup/customizer-styles', '__return_false' );
+			add_filter(
+				'snow_monkey_pre_template_part_render_app/setup/customizer-styles',
+				'__return_false'
+			);
 		}
 
 		if ( 1 === $this->_get_option( 'disable-hash-nav' ) ) {
-			add_action( 'snow_monkey_get_template_part_app/setup/hash-nav', '__return_false' );
+			add_filter(
+				'snow_monkey_pre_template_part_render_app/setup/hash-nav',
+				'__return_false'
+			);
 		}
 
 		if ( 1 === $this->_get_option( 'disable-support-forum-widget' ) ) {
-			add_action( 'snow_monkey_get_template_part_app/setup/support-forum-widget', '__return_false' );
+			add_filter(
+				'snow_monkey_pre_template_part_render_app/setup/support-forum-widget',
+				'__return_false'
+			);
 		}
 
 		if ( 1 === $this->_get_option( 'disable-page-top' ) ) {
-			add_action( 'snow_monkey_get_template_part_app/customizer/design/sections/base-design/controls/display-page-top', '__return_false' );
-			add_action( 'snow_monkey_get_template_part_app/setup/page-top', '__return_false' );
+			add_filter(
+				'snow_monkey_pre_template_part_render_app/customizer/design/sections/base-design/controls/display-page-top',
+				'__return_false'
+			);
+			add_filter(
+				'snow_monkey_pre_template_part_render_app/setup/page-top',
+				'__return_false'
+			);
+			add_filter(
+				'snow_monkey_pre_template_part_render_template-parts/common/page-top',
+				'__return_false'
+			);
 		}
 
 		if ( 1 === $this->_get_option( 'disable-share-buttons' ) ) {
-			add_action( 'snow_monkey_get_template_part_app/customizer/sns/sections/share-buttons/section', '__return_false' );
-			add_action( 'snow_monkey_get_template_part_app/setup/share-buttons', '__return_false' );
-			add_action( 'snow_monkey_get_template_part_template-parts/content/share-buttons', '__return_false' );
+			add_filter(
+				'snow_monkey_pre_template_part_render_app/customizer/sns/sections/share-buttons/section',
+				'__return_false'
+			);
+			add_filter(
+				'snow_monkey_pre_template_part_render_app/setup/share-buttons',
+				'__return_false'
+			);
+			add_filter(
+				'snow_monkey_pre_template_part_render_template-parts/content/share-buttons',
+				'__return_false'
+			);
 		}
 
 		if ( 1 === $this->_get_option( 'disable-nav-menus' ) ) {
-			add_action( 'snow_monkey_get_template_part_app/setup/nav-menus', '__return_false' );
+			add_filter(
+				'snow_monkey_pre_template_part_render_app/setup/nav-menus',
+				'__return_false'
+			);
 		}
 
 		if ( 1 === $this->_get_option( 'disable-seo' ) ) {
-			add_action( 'snow_monkey_get_template_part_app/customizer/seo/panel', '__return_false' );
-			add_action( 'snow_monkey_get_template_part_app/setup/seo', '__return_false' );
+			add_filter(
+				'snow_monkey_pre_template_part_render_app/customizer/seo/panel',
+				'__return_false'
+			);
+			add_filter(
+				'snow_monkey_pre_template_part_render_app/setup/seo',
+				'__return_false'
+			);
 		}
 
 		if ( 1 === $this->_get_option( 'disable-like-me-box' ) ) {
-			add_action( 'snow_monkey_get_template_part_app/customizer/sns/sections/like-me-box/section', '__return_false' );
-			add_action( 'snow_monkey_get_template_part_app/like-me-box', '__return_false' );
-			add_action( 'snow_monkey_get_template_part_template-parts/common/like-me-box', '__return_false' );
+			add_filter(
+				'snow_monkey_pre_template_part_render_app/customizer/sns/sections/like-me-box/section',
+				'__return_false'
+			);
+			add_filter(
+				'snow_monkey_pre_template_part_render_app/like-me-box',
+				'__return_false'
+			);
+			add_filter(
+				'snow_monkey_pre_template_part_render_template-parts/common/like-me-box',
+				'__return_false'
+			);
 		}
 
 		if ( 1 === $this->_get_option( 'disable-profile-box' ) ) {
-			add_action( 'snow_monkey_get_template_part_app/customizer/design/sections/post/controls/profile-box', '__return_false' );
-			add_action( 'snow_monkey_get_template_part_template-parts/common/profile-box', '__return_false' );
+			add_filter(
+				'snow_monkey_pre_template_part_render_app/customizer/design/sections/post/controls/profile-box',
+				'__return_false'
+			);
+			add_filter(
+				'snow_monkey_pre_template_part_render_template-parts/common/profile-box',
+				'__return_false'
+			);
 		}
 
 		if ( 1 === $this->_get_option( 'disable-related-posts' ) ) {
-			add_action( 'snow_monkey_get_template_part_app/customizer/design/sections/post/controls/related-posts-layout', '__return_false' );
-			add_action( 'snow_monkey_get_template_part_app/customizer/design/sections/post/controls/related-posts', '__return_false' );
-			add_action( 'snow_monkey_get_template_part_template-parts/content/profile-box', '__return_false' );
+			add_filter(
+				'snow_monkey_pre_template_part_render_app/customizer/design/sections/post/controls/related-posts-layout',
+				'__return_false'
+			);
+			add_filter(
+				'snow_monkey_pre_template_part_render_app/customizer/design/sections/post/controls/related-posts',
+				'__return_false'
+			);
+			add_filter(
+				'snow_monkey_pre_template_part_render_template-parts/content/profile-box',
+				'__return_false'
+			);
 		}
 
 		if ( 1 === $this->_get_option( 'disable-prev-next-nav' ) ) {
-			add_action( 'snow_monkey_get_template_part_template-parts/content/prev-next-nav', '__return_false' );
+			add_filter(
+				'snow_monkey_pre_template_part_render_template-parts/content/prev-next-nav',
+				'__return_false'
+			);
 		}
 
 		if ( 1 === $this->_get_option( 'disable-infobar' ) ) {
-			add_action( 'snow_monkey_get_template_part_app/customizer/infobar/section', '__return_false' );
-			add_action( 'snow_monkey_get_template_part_template-parts/common/infobar', '__return_false' );
+			add_filter(
+				'snow_monkey_pre_template_part_render_app/customizer/infobar/section',
+				'__return_false'
+			);
+			add_filter(
+				'snow_monkey_pre_template_part_render_template-parts/common/infobar',
+				'__return_false'
+			);
 		}
 
 		if ( 1 === $this->_get_option( 'disable-smooth-scroll' ) ) {
-			add_action( 'snow_monkey_get_template_part_app/setup/smooth-scroll', '__return_false' );
+			add_filter(
+				'snow_monkey_pre_template_part_render_app/setup/smooth-scroll',
+				'__return_false'
+			);
 		}
 
 		if ( 1 === $this->_get_option( 'disable-advertisement' ) ) {
-			add_action( 'snow_monkey_get_template_part_app/customizer/advertisement/section', '__return_false' );
-			add_action( 'snow_monkey_get_template_part_app/setup/google-adsense', '__return_false' );
-			add_action( 'snow_monkey_get_template_part_app/setup/google-infeed-ads', '__return_false' );
-			add_action( 'snow_monkey_get_template_part_template-parts/common/google-adsense', '__return_false' );
+			add_filter(
+				'snow_monkey_pre_template_part_render_app/customizer/advertisement/section',
+				'__return_false'
+			);
+			add_filter(
+				'snow_monkey_pre_template_part_render_app/setup/google-adsense',
+				'__return_false'
+			);
+			add_filter(
+				'snow_monkey_pre_template_part_render_app/setup/google-infeed-ads',
+				'__return_false'
+			);
+			add_filter(
+				'snow_monkey_pre_template_part_render_template-parts/common/google-adsense',
+				'__return_false'
+			);
 		}
 
 		if ( 1 === $this->_get_option( 'disable-theme-color' ) ) {
-			add_action( 'snow_monkey_get_template_part_app/setup/theme-color', '__return_false' );
+			add_filter(
+				'snow_monkey_pre_template_part_render_app/setup/theme-color',
+				'__return_false'
+			);
 		}
 
 		if ( 1 === $this->_get_option( 'disable-community' ) ) {
-			add_action( 'snow_monkey_get_template_part_app/customizer/snow-monkey-community/section', '__return_false' );
+			add_filter(
+				'snow_monkey_pre_template_part_render_app/customizer/snow-monkey-community/section',
+				'__return_false'
+			);
 		}
 	}
 
@@ -508,7 +614,10 @@ class Bootstrap {
 		new Updater(
 			plugin_basename( __FILE__ ),
 			'inc2734',
-			'snow-monkey-diet'
+			'snow-monkey-diet',
+			[
+				'homepage' => 'https://snow-monkey.2inc.org',
+			]
 		);
 	}
 }
