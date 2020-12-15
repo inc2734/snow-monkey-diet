@@ -3,10 +3,23 @@
   "license": "GPL-2.0+",
   "dependencies": {},
   "devDependencies": {
-    "cpy-cli": "^3.0.0",
-    "rimraf": "^3.0.0"
+    "@wordpress/env": "^2.1.0",
+    "cpy-cli": "^3.1.1",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2"
   },
   "scripts": {
+    "wp-env": "wp-env",
+    "start": "wp-env start && open http://localhost:8888",
+    "stop": "npm run wp db export sql/local.sql && wp-env stop",
+    "cli": "wp-env run cli",
+    "wp": "wp-env run cli wp",
+    "pretest": "wp-env start && wp-env run composer 'install --no-interaction'",
+    "test:lint:php": "wp-env run composer run-script lint",
+    "test:lint": "run-s test:lint:*",
+    "test:unit:php": "wp-env run composer run-script install-theme && wp-env run phpunit 'phpunit -c /var/www/html/wp-content/plugins/snow-monkey-diet/.phpunit.xml.dist --verbose'",
+    "test:unit": "run-s test:unit:*",
+    "test": "run-s test:*",
     "clean:zip": "rimraf snow-monkey-diet.zip",
     "zip:pack": "rsync -a --exclude='/vendor' --exclude='/node_modules' --exclude='.*' --exclude='*.config.js' --exclude='*.xml.dist' --exclude='*.ruleset.xml' --exclude='/bin' --exclude='/tests' --exclude='package*.json' . snow-monkey-diet && cd snow-monkey-diet && composer install --no-dev",
     "zip:archive": "zip -9 -qmr snow-monkey-diet.zip snow-monkey-diet",

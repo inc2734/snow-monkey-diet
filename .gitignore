@@ -7,3 +7,7 @@ dist/
 *.sql
 snow-monkey-diet/
 snow-monkey-diet
+/.themes/
+/.plugins/
+sql/
+.wp-env.override.json

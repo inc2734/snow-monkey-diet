@@ -3,7 +3,7 @@
  * Plugin name: Snow Monkey Diet
  * Description: You can stop unused functions of the Snow Monkey.
  * Version: 0.6.0
- * Tested up to: 5.5
+ * Tested up to: 5.6
  * Requires at least: 5.5
  * Requires PHP: 5.6
  * Author: inc2734
@@ -26,10 +26,16 @@ define( 'SNOW_MONKEY_DIET_PATH', untrailingslashit( plugin_dir_path( __FILE__ ) 
 
 class Bootstrap {
 
+	/**
+	 * Constructor.
+	 */
 	public function __construct() {
 		add_action( 'plugins_loaded', [ $this, '_plugins_loaded' ] );
 	}
 
+	/**
+	 * Plugins loaded.
+	 */
 	public function _plugins_loaded() {
 		load_plugin_textdomain( 'snow-monkey-diet', false, basename( __DIR__ ) . '/languages' );
 
@@ -88,6 +94,9 @@ class Bootstrap {
 		<?php
 	}
 
+	/**
+	 * Add admin menu.
+	 */
 	public function _admin_menu() {
 		add_options_page(
 			__( 'Snow Monkey Diet', 'snow-monkey-diet' ),
@@ -114,6 +123,9 @@ class Bootstrap {
 		);
 	}
 
+	/**
+	 * Register setting.
+	 */
 	public function _admin_init() {
 		register_setting(
 			'snow-monkey-diet',
@@ -401,6 +413,9 @@ class Bootstrap {
 		);
 	}
 
+	/**
+	 * Main processes.
+	 */
 	public function _disable() {
 		if ( 1 === $this->_get_option( 'disable-widget-areas' ) ) {
 			add_filter(
@@ -600,6 +615,12 @@ class Bootstrap {
 		}
 	}
 
+	/**
+	 * Return option.
+	 *
+	 * @param string $key The option key.
+	 * @return mixed
+	 */
 	protected function _get_option( $key ) {
 		$option = get_option( 'snow-monkey-diet' );
 		return isset( $option[ $key ] ) ? (int) $option[ $key ] : false;
