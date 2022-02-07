@@ -2,8 +2,8 @@
 /**
  * Plugin name: Snow Monkey Diet
  * Description: You can stop unused functions of the Snow Monkey.
- * Version: 0.6.1
- * Tested up to: 5.6
+ * Version: 0.6.2
+ * Tested up to: 5.9
  * Requires at least: 5.5
  * Requires PHP: 5.6
  * Author: inc2734

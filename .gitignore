@@ -6,7 +6,7 @@ node_modules/
 dist/
 *.sql
 snow-monkey-diet/
-snow-monkey-diet
+snow-monkey-diet.zip
 /.themes/
 /.plugins/
 sql/
