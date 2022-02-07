@@ -11,3 +11,4 @@ snow-monkey-diet
 /.plugins/
 sql/
 .wp-env.override.json
+/.export/*
