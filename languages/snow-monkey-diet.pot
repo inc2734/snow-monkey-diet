@@ -1,0 +1,131 @@
+# Copyright (C) 2023 inc2734
+# This file is distributed under the GPL2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Snow Monkey Diet 0.6.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-diet\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2023-03-10T06:41:57+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.7.1\n"
+"X-Domain: snow-monkey-diet\n"
+
+#. Plugin Name of the plugin
+#: snow-monkey-diet.php:102
+#: snow-monkey-diet.php:103
+#: snow-monkey-diet.php:109
+msgid "Snow Monkey Diet"
+msgstr ""
+
+#. Description of the plugin
+msgid "You can stop unused functions of the Snow Monkey."
+msgstr ""
+
+#. Author of the plugin
+msgid "inc2734"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://2inc.org"
+msgstr ""
+
+#: snow-monkey-diet.php:70
+msgid "[Snow Monkey Diet] Needs the Snow Monkey."
+msgstr ""
+
+#. translators: %1$s: version
+#: snow-monkey-diet.php:88
+msgid "[Snow Monkey Diet] Needs the Snow Monkey %1$s or more."
+msgstr ""
+
+#: snow-monkey-diet.php:111
+msgid "Suspended setting items may need to be re-setting when re-enabled."
+msgstr ""
+
+#: snow-monkey-diet.php:169
+msgid "Settings"
+msgstr ""
+
+#: snow-monkey-diet.php:177
+msgid "Disable widget areas"
+msgstr ""
+
+#: snow-monkey-diet.php:189
+msgid "Disable custom widgets"
+msgstr ""
+
+#: snow-monkey-diet.php:201
+msgid "Disable drop navigation"
+msgstr ""
+
+#: snow-monkey-diet.php:213
+msgid "Disable blog card"
+msgstr ""
+
+#: snow-monkey-diet.php:225
+msgid "Disable CSS from the customizer"
+msgstr ""
+
+#: snow-monkey-diet.php:237
+msgid "Disable hash navs"
+msgstr ""
+
+#: snow-monkey-diet.php:249
+msgid "Disable support forum widget on the dashboard"
+msgstr ""
+
+#: snow-monkey-diet.php:261
+msgid "Disable page top button"
+msgstr ""
+
+#: snow-monkey-diet.php:273
+msgid "Disable share buttons"
+msgstr ""
+
+#: snow-monkey-diet.php:285
+msgid "Disable nav menus"
+msgstr ""
+
+#: snow-monkey-diet.php:297
+msgid "Disable SEO"
+msgstr ""
+
+#: snow-monkey-diet.php:309
+msgid "Disable like me box"
+msgstr ""
+
+#: snow-monkey-diet.php:321
+msgid "Disable profile box"
+msgstr ""
+
+#: snow-monkey-diet.php:333
+msgid "Disable related posts"
+msgstr ""
+
+#: snow-monkey-diet.php:345
+msgid "Disable prev/next nav"
+msgstr ""
+
+#: snow-monkey-diet.php:357
+msgid "Disable infobar"
+msgstr ""
+
+#: snow-monkey-diet.php:369
+msgid "Disable smooth scroll"
+msgstr ""
+
+#: snow-monkey-diet.php:381
+msgid "Disable advertisement"
+msgstr ""
+
+#: snow-monkey-diet.php:393
+msgid "Disable mobile device browser color"
+msgstr ""
+
+#: snow-monkey-diet.php:405
+msgid "Disable Snow Monkey Community section in customizer"
+msgstr ""

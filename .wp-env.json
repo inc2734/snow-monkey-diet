@@ -1,9 +1,12 @@
 {
-  "core": null,
-  "plugins": [
-    "."
-  ],
-  "config": {
-    "WP_DEBUG": true
-  }
+	"core": null,
+	"plugins": [
+		"."
+	],
+	"config": {
+		"WP_DEBUG": true
+	},
+	"mappings": {
+		".export": "./.export"
+	}
 }

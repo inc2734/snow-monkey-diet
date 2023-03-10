@@ -30,7 +30,7 @@ class Bootstrap {
 	 * Constructor.
 	 */
 	public function __construct() {
-		add_action( 'plugins_loaded', [ $this, '_plugins_loaded' ] );
+		add_action( 'plugins_loaded', array( $this, '_plugins_loaded' ) );
 	}
 
 	/**
@@ -39,21 +39,21 @@ class Bootstrap {
 	public function _plugins_loaded() {
 		load_plugin_textdomain( 'snow-monkey-diet', false, basename( __DIR__ ) . '/languages' );
 
-		add_action( 'init', [ $this, '_activate_autoupdate' ] );
+		add_action( 'init', array( $this, '_activate_autoupdate' ) );
 
 		$theme = wp_get_theme( get_template() );
 		if ( 'snow-monkey' !== $theme->template && 'snow-monkey/resources' !== $theme->template ) {
-			add_action( 'admin_notices', [ $this, '_admin_notice_no_snow_monkey' ] );
+			add_action( 'admin_notices', array( $this, '_admin_notice_no_snow_monkey' ) );
 			return;
 		}
 
 		if ( ! version_compare( $theme->get( 'Version' ), '11.1.0', '>=' ) ) {
-			add_action( 'admin_notices', [ $this, '_admin_notice_invalid_snow_monkey_version' ] );
+			add_action( 'admin_notices', array( $this, '_admin_notice_invalid_snow_monkey_version' ) );
 			return;
 		}
 
-		add_action( 'admin_menu', [ $this, '_admin_menu' ] );
-		add_action( 'admin_init', [ $this, '_admin_init' ] );
+		add_action( 'admin_menu', array( $this, '_admin_menu' ) );
+		add_action( 'admin_init', array( $this, '_admin_init' ) );
 
 		$this->_disable();
 	}
@@ -131,7 +131,7 @@ class Bootstrap {
 			'snow-monkey-diet',
 			'snow-monkey-diet',
 			function( $option ) {
-				$default_option = [
+				$default_option = array(
 					'disable-widget-areas'         => false,
 					'disable-custom-widgets'       => false,
 					'disable-drop-nav'             => false,
@@ -153,9 +153,9 @@ class Bootstrap {
 					'disable-advertisement'        => false,
 					'disable-theme-color'          => false,
 					'disable-community'            => false,
-				];
+				);
 
-				$new_option = [];
+				$new_option = array();
 				foreach ( $default_option as $key => $value ) {
 					$new_option[ $key ] = ! empty( $option[ $key ] ) ? 1 : $value;
 				}
@@ -636,9 +636,9 @@ class Bootstrap {
 			plugin_basename( __FILE__ ),
 			'inc2734',
 			'snow-monkey-diet',
-			[
+			array(
 				'homepage' => 'https://snow-monkey.2inc.org',
-			]
+			)
 		);
 	}
 }
