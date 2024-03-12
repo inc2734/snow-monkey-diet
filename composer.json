@@ -19,8 +19,8 @@
 		"inc2734/wp-github-plugin-updater": "^3.1"
 	},
 	"scripts" :{
-		"lint": "phpcs --standard=.phpcs.xml.dist",
-		"format": "phpcbf --standard=.phpcs.xml.dist --report-summary --report-source",
+		"lint": "./vendor/squizlabs/php_codesniffer/bin/phpcs",
+		"format": "./vendor/squizlabs/php_codesniffer/bin/phpcbf",
 		"install-theme": "rm -rf ./.themes && mkdir ./.themes && wget -P ./.themes https://github.com/inc2734/snow-monkey/archive/master.zip && unzip -o -qq ./.themes/master.zip -d ./.themes && mv ./.themes/snow-monkey-master ./.themes/snow-monkey && cd .themes/snow-monkey && composer install --no-dev"
 	},
 	"autoload": {

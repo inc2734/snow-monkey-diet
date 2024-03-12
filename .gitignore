@@ -12,3 +12,4 @@ snow-monkey-diet.zip
 sql/
 .wp-env.override.json
 /.export/*
+.phpunit.result.cache
