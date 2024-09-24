@@ -2,8 +2,8 @@
 /**
  * Plugin name: Snow Monkey Diet
  * Description: You can stop unused functions of the Snow Monkey.
- * Version: 0.8.0
- * Tested up to: 6.5
+ * Version: 0.8.1
+ * Tested up to: 6.6
  * Requires at least: 5.5
  * Requires PHP: 7.4
  * Author: inc2734
@@ -83,8 +83,8 @@ class Bootstrap {
 		<div class="notice notice-warning is-dismissible">
 			<p>
 				<?php
-				echo sprintf(
-					// translators: %1$s: version
+				printf(
+					// translators: %1$s: version.
 					esc_html__( '[Snow Monkey Diet] Needs the Snow Monkey %1$s or more.', 'snow-monkey-diet' ),
 					'v11.1.0'
 				);
@@ -103,7 +103,7 @@ class Bootstrap {
 			__( 'Snow Monkey Diet', 'snow-monkey-diet' ),
 			'manage_options',
 			'snow-monkey-diet',
-			function() {
+			function () {
 				?>
 				<div class="wrap">
 					<h1><?php esc_html_e( 'Snow Monkey Diet', 'snow-monkey-diet' ); ?></h1>
@@ -130,7 +130,7 @@ class Bootstrap {
 		register_setting(
 			'snow-monkey-diet',
 			'snow-monkey-diet',
-			function( $option ) {
+			function ( $option ) {
 				$default_option = array(
 					'disable-widget-areas'         => false,
 					'disable-custom-widgets'       => false,
@@ -145,7 +145,6 @@ class Bootstrap {
 					'disable-seo'                  => false,
 					'disable-like-me-box'          => false,
 					'disable-profile-box'          => false,
-					'disable-related-posts'        => false,
 					'disable-related-posts'        => false,
 					'disable-prev-next-nav'        => false,
 					'disable-infobar'              => false,
@@ -167,7 +166,7 @@ class Bootstrap {
 		add_settings_section(
 			'snow-monkey-diet-disable',
 			__( 'Settings', 'snow-monkey-diet' ),
-			function() {
+			function () {
 			},
 			'snow-monkey-diet'
 		);
@@ -175,7 +174,7 @@ class Bootstrap {
 		add_settings_field(
 			'disable-widget-areas',
 			__( 'Disable widget areas', 'snow-monkey-diet' ),
-			function() {
+			function () {
 				?>
 				<input type="checkbox" name="snow-monkey-diet[disable-widget-areas]" value="1" <?php checked( 1, $this->_get_option( 'disable-widget-areas' ) ); ?>>
 				<?php
@@ -187,7 +186,7 @@ class Bootstrap {
 		add_settings_field(
 			'disable-custom-widgets',
 			__( 'Disable custom widgets', 'snow-monkey-diet' ),
-			function() {
+			function () {
 				?>
 				<input type="checkbox" name="snow-monkey-diet[disable-custom-widgets]" value="1" <?php checked( 1, $this->_get_option( 'disable-custom-widgets' ) ); ?>>
 				<?php
@@ -199,7 +198,7 @@ class Bootstrap {
 		add_settings_field(
 			'disable-drop-nav',
 			__( 'Disable drop navigation', 'snow-monkey-diet' ),
-			function() {
+			function () {
 				?>
 				<input type="checkbox" name="snow-monkey-diet[disable-drop-nav]" value="1" <?php checked( 1, $this->_get_option( 'disable-drop-nav' ) ); ?>>
 				<?php
@@ -211,7 +210,7 @@ class Bootstrap {
 		add_settings_field(
 			'disable-blog-card',
 			__( 'Disable blog card', 'snow-monkey-diet' ),
-			function() {
+			function () {
 				?>
 				<input type="checkbox" name="snow-monkey-diet[disable-blog-card]" value="1" <?php checked( 1, $this->_get_option( 'disable-blog-card' ) ); ?>>
 				<?php
@@ -223,7 +222,7 @@ class Bootstrap {
 		add_settings_field(
 			'disable-customizer-styles',
 			__( 'Disable CSS from the customizer', 'snow-monkey-diet' ),
-			function() {
+			function () {
 				?>
 				<input type="checkbox" name="snow-monkey-diet[disable-customizer-styles]" value="1" <?php checked( 1, $this->_get_option( 'disable-customizer-styles' ) ); ?>>
 				<?php
@@ -235,7 +234,7 @@ class Bootstrap {
 		add_settings_field(
 			'disable-hash-nav',
 			__( 'Disable hash navs', 'snow-monkey-diet' ),
-			function() {
+			function () {
 				?>
 				<input type="checkbox" name="snow-monkey-diet[disable-hash-nav]" value="1" <?php checked( 1, $this->_get_option( 'disable-hash-nav' ) ); ?>>
 				<?php
@@ -247,7 +246,7 @@ class Bootstrap {
 		add_settings_field(
 			'disable-support-forum-widget',
 			__( 'Disable support forum widget on the dashboard', 'snow-monkey-diet' ),
-			function() {
+			function () {
 				?>
 				<input type="checkbox" name="snow-monkey-diet[disable-support-forum-widget]" value="1" <?php checked( 1, $this->_get_option( 'disable-support-forum-widget' ) ); ?>>
 				<?php
@@ -259,7 +258,7 @@ class Bootstrap {
 		add_settings_field(
 			'disable-page-top',
 			__( 'Disable page top button', 'snow-monkey-diet' ),
-			function() {
+			function () {
 				?>
 				<input type="checkbox" name="snow-monkey-diet[disable-page-top]" value="1" <?php checked( 1, $this->_get_option( 'disable-page-top' ) ); ?>>
 				<?php
@@ -271,7 +270,7 @@ class Bootstrap {
 		add_settings_field(
 			'disable-share-buttons',
 			__( 'Disable share buttons', 'snow-monkey-diet' ),
-			function() {
+			function () {
 				?>
 				<input type="checkbox" name="snow-monkey-diet[disable-share-buttons]" value="1" <?php checked( 1, $this->_get_option( 'disable-share-buttons' ) ); ?>>
 				<?php
@@ -283,7 +282,7 @@ class Bootstrap {
 		add_settings_field(
 			'disable-nav-menus',
 			__( 'Disable nav menus', 'snow-monkey-diet' ),
-			function() {
+			function () {
 				?>
 				<input type="checkbox" name="snow-monkey-diet[disable-nav-menus]" value="1" <?php checked( 1, $this->_get_option( 'disable-nav-menus' ) ); ?>>
 				<?php
@@ -295,7 +294,7 @@ class Bootstrap {
 		add_settings_field(
 			'disable-seo',
 			__( 'Disable SEO', 'snow-monkey-diet' ),
-			function() {
+			function () {
 				?>
 				<input type="checkbox" name="snow-monkey-diet[disable-seo]" value="1" <?php checked( 1, $this->_get_option( 'disable-seo' ) ); ?>>
 				<?php
@@ -307,7 +306,7 @@ class Bootstrap {
 		add_settings_field(
 			'disable-like-me-box',
 			__( 'Disable like me box', 'snow-monkey-diet' ),
-			function() {
+			function () {
 				?>
 				<input type="checkbox" name="snow-monkey-diet[disable-like-me-box]" value="1" <?php checked( 1, $this->_get_option( 'disable-like-me-box' ) ); ?>>
 				<?php
@@ -319,7 +318,7 @@ class Bootstrap {
 		add_settings_field(
 			'disable-profile-box',
 			__( 'Disable profile box', 'snow-monkey-diet' ),
-			function() {
+			function () {
 				?>
 				<input type="checkbox" name="snow-monkey-diet[disable-profile-box]" value="1" <?php checked( 1, $this->_get_option( 'disable-profile-box' ) ); ?>>
 				<?php
@@ -331,7 +330,7 @@ class Bootstrap {
 		add_settings_field(
 			'disable-related-posts',
 			__( 'Disable related posts', 'snow-monkey-diet' ),
-			function() {
+			function () {
 				?>
 				<input type="checkbox" name="snow-monkey-diet[disable-related-posts]" value="1" <?php checked( 1, $this->_get_option( 'disable-related-posts' ) ); ?>>
 				<?php
@@ -343,7 +342,7 @@ class Bootstrap {
 		add_settings_field(
 			'disable-prev-next-nav',
 			__( 'Disable prev/next nav', 'snow-monkey-diet' ),
-			function() {
+			function () {
 				?>
 				<input type="checkbox" name="snow-monkey-diet[disable-prev-next-nav]" value="1" <?php checked( 1, $this->_get_option( 'disable-prev-next-nav' ) ); ?>>
 				<?php
@@ -355,7 +354,7 @@ class Bootstrap {
 		add_settings_field(
 			'disable-infobar',
 			__( 'Disable infobar', 'snow-monkey-diet' ),
-			function() {
+			function () {
 				?>
 				<input type="checkbox" name="snow-monkey-diet[disable-infobar]" value="1" <?php checked( 1, $this->_get_option( 'disable-infobar' ) ); ?>>
 				<?php
@@ -367,7 +366,7 @@ class Bootstrap {
 		add_settings_field(
 			'disable-smooth-scroll',
 			__( 'Disable smooth scroll', 'snow-monkey-diet' ),
-			function() {
+			function () {
 				?>
 				<input type="checkbox" name="snow-monkey-diet[disable-smooth-scroll]" value="1" <?php checked( 1, $this->_get_option( 'disable-smooth-scroll' ) ); ?>>
 				<?php
@@ -379,7 +378,7 @@ class Bootstrap {
 		add_settings_field(
 			'disable-advertisement',
 			__( 'Disable advertisement', 'snow-monkey-diet' ),
-			function() {
+			function () {
 				?>
 				<input type="checkbox" name="snow-monkey-diet[disable-advertisement]" value="1" <?php checked( 1, $this->_get_option( 'disable-advertisement' ) ); ?>>
 				<?php
@@ -391,7 +390,7 @@ class Bootstrap {
 		add_settings_field(
 			'disable-theme-color',
 			__( 'Disable mobile device browser color', 'snow-monkey-diet' ),
-			function() {
+			function () {
 				?>
 				<input type="checkbox" name="snow-monkey-diet[disable-theme-color]" value="1" <?php checked( 1, $this->_get_option( 'disable-theme-color' ) ); ?>>
 				<?php
@@ -403,7 +402,7 @@ class Bootstrap {
 		add_settings_field(
 			'disable-community',
 			__( 'Disable Snow Monkey Community section in customizer', 'snow-monkey-diet' ),
-			function() {
+			function () {
 				?>
 				<input type="checkbox" name="snow-monkey-diet[disable-community]" value="1" <?php checked( 1, $this->_get_option( 'disable-community' ) ); ?>>
 				<?php
@@ -643,5 +642,5 @@ class Bootstrap {
 	}
 }
 
-require_once( SNOW_MONKEY_DIET_PATH . '/vendor/autoload.php' );
+require_once SNOW_MONKEY_DIET_PATH . '/vendor/autoload.php';
 new Bootstrap();
