@@ -32,6 +32,7 @@
 		"cli": "wp-env run cli --env-cwd=\"wp-content/plugins/snow-monkey-diet\"",
 		"wp": "npm run cli wp",
 		"composer": "wp-env run --env-cwd=\"wp-content/plugins/snow-monkey-diet\" cli composer",
+		"pretest:unit:php": "wp-env start && npm run composer install-theme",
 		"test:lint:php": "wp-env start && npm run composer lint",
 		"test:lint": "run-s test:lint:*",
 		"test:unit:php": "wp-env start && wp-env run --env-cwd=\"wp-content/plugins/snow-monkey-diet\" tests-wordpress -- vendor/bin/phpunit -c .phpunit.xml.dist --verbose",
