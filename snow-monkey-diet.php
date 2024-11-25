@@ -3,7 +3,7 @@
  * Plugin name: Snow Monkey Diet
  * Description: You can stop unused functions of the Snow Monkey.
  * Version: 0.8.1
- * Tested up to: 6.6
+ * Tested up to: 6.7
  * Requires at least: 5.5
  * Requires PHP: 7.4
  * Author: inc2734
@@ -37,9 +37,9 @@ class Bootstrap {
 	 * Plugins loaded.
 	 */
 	public function _plugins_loaded() {
-		load_plugin_textdomain( 'snow-monkey-diet', false, basename( __DIR__ ) . '/languages' );
+		add_action( 'init', array( $this, '_load_textdomain' ) );
 
-		add_action( 'init', array( $this, '_activate_autoupdate' ) );
+		new App\Updater();
 
 		$theme = wp_get_theme( get_template() );
 		if ( 'snow-monkey' !== $theme->template && 'snow-monkey/resources' !== $theme->template ) {
@@ -626,19 +626,10 @@ class Bootstrap {
 	}
 
 	/**
-	 * Activate auto update using GitHub
-	 *
-	 * @return void
+	 * Load textdomain
 	 */
-	public function _activate_autoupdate() {
-		new Updater(
-			plugin_basename( __FILE__ ),
-			'inc2734',
-			'snow-monkey-diet',
-			array(
-				'homepage' => 'https://snow-monkey.2inc.org',
-			)
-		);
+	public function _load_textdomain() {
+		load_plugin_textdomain( 'snow-monkey-diet', false, basename( __DIR__ ) . '/languages' );
 	}
 }
 
