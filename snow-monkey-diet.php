@@ -550,7 +550,7 @@ class Bootstrap {
 				'__return_false'
 			);
 			add_filter(
-				'snow_monkey_pre_template_part_render_template-parts/content/profile-box',
+				'snow_monkey_pre_template_part_render_template-parts/content/related-posts',
 				'__return_false'
 			);
 		}
