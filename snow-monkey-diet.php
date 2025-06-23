@@ -151,6 +151,7 @@ class Bootstrap {
 					'disable-smooth-scroll'        => false,
 					'disable-advertisement'        => false,
 					'disable-theme-color'          => false,
+					'disable-theme-styles'         => false,
 					'disable-community'            => false,
 				);
 
@@ -400,6 +401,18 @@ class Bootstrap {
 		);
 
 		add_settings_field(
+			'disable-theme-styles',
+			__( 'Disable decorative CSS', 'snow-monkey-diet' ),
+			function () {
+				?>
+				<input type="checkbox" name="snow-monkey-diet[disable-theme-styles]" value="1" <?php checked( 1, $this->_get_option( 'disable-theme-styles' ) ); ?>>
+				<?php
+			},
+			'snow-monkey-diet',
+			'snow-monkey-diet-disable'
+		);
+
+		add_settings_field(
 			'disable-community',
 			__( 'Disable Snow Monkey Community section in customizer', 'snow-monkey-diet' ),
 			function () {
@@ -604,6 +617,35 @@ class Bootstrap {
 				'snow_monkey_pre_template_part_render_app/setup/theme-color',
 				'__return_false'
 			);
+		}
+
+		if ( 1 === $this->_get_option( 'disable-theme-styles' ) ) {
+			$hooks = array( 'wp_enqueue_scripts', 'enqueue_block_assets', 'enqueue_block_editor_assets' );
+			foreach ( $hooks as $hook ) {
+				add_action(
+					$hook,
+					function () {
+						global $wp_styles;
+
+						foreach ( $wp_styles->registered as $handle => $wp_dependency ) {
+							if ( preg_match( '|^snow-monkey-(.+?)-theme$|', $handle ) || 0 === strpos( $handle, 'snow-monkey-theme' ) ) {
+								wp_deregister_style( $handle );
+								wp_dequeue_style( $handle );
+							} elseif ( 0 === strpos( $handle, 'snow-monkey' ) ) {
+								$wp_dependency->deps = array_filter(
+									$wp_dependency->deps,
+									function ( $dep ) {
+										return ! preg_match( '|^snow-monkey-(.+?)-theme$|', $dep ) && 0 !== strpos( $dep, 'snow-monkey-theme' );
+									}
+								);
+
+								$wp_styles->registered[ $handle ] = $wp_dependency;
+							}
+						}
+					},
+					9999
+				);
+			}
 		}
 
 		if ( 1 === $this->_get_option( 'disable-community' ) ) {

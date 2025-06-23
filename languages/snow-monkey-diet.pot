@@ -1,20 +1,21 @@
-# Copyright (C) 2024 inc2734
+# Copyright (C) 2025 inc2734
 # This file is distributed under the GPL2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Snow Monkey Diet 0.7.0\n"
+"Project-Id-Version: Snow Monkey Diet 0.8.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-diet\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-03-12T13:36:24+00:00\n"
+"POT-Creation-Date: 2025-06-23T06:11:11+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.9.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: snow-monkey-diet\n"
 
 #. Plugin Name of the plugin
+#: snow-monkey-diet.php
 #: snow-monkey-diet.php:102
 #: snow-monkey-diet.php:103
 #: snow-monkey-diet.php:109
@@ -22,14 +23,17 @@ msgid "Snow Monkey Diet"
 msgstr ""
 
 #. Description of the plugin
+#: snow-monkey-diet.php
 msgid "You can stop unused functions of the Snow Monkey."
 msgstr ""
 
 #. Author of the plugin
+#: snow-monkey-diet.php
 msgid "inc2734"
 msgstr ""
 
 #. Author URI of the plugin
+#: snow-monkey-diet.php
 msgid "https://2inc.org"
 msgstr ""
 
@@ -37,8 +41,9 @@ msgstr ""
 msgid "[Snow Monkey Diet] Needs the Snow Monkey."
 msgstr ""
 
-#. translators: %1$s: version
+#. translators: %1$s: version.
 #: snow-monkey-diet.php:88
+#, php-format
 msgid "[Snow Monkey Diet] Needs the Snow Monkey %1$s or more."
 msgstr ""
 
@@ -127,5 +132,9 @@ msgid "Disable mobile device browser color"
 msgstr ""
 
 #: snow-monkey-diet.php:405
+msgid "Disable decorative CSS"
+msgstr ""
+
+#: snow-monkey-diet.php:417
 msgid "Disable Snow Monkey Community section in customizer"
 msgstr ""

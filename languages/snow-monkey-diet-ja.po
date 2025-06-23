@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: Snow Monkey Diet\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/snow-monkey-"
 "diet\n"
-"POT-Creation-Date: 2023-03-10T06:41:57+00:00\n"
-"PO-Revision-Date: 2023-03-10 15:42+0900\n"
+"POT-Creation-Date: 2025-06-23T06:11:11+00:00\n"
+"PO-Revision-Date: 2025-06-23 15:12+0900\n"
 "Last-Translator: inc2734 <inc@2inc.org>\n"
 "Language-Team: inc2734 <inc@2inc.org>\n"
 "Language: ja\n"
@@ -12,14 +12,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.6\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: snow-monkey-diet.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
-"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 "X-Poedit-SearchPathExcluded-1: node_modules\n"
@@ -27,19 +26,23 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-3: bin\n"
 
 #. Plugin Name of the plugin
-#: snow-monkey-diet.php:102 snow-monkey-diet.php:103 snow-monkey-diet.php:109
+#: snow-monkey-diet.php snow-monkey-diet.php:102 snow-monkey-diet.php:103
+#: snow-monkey-diet.php:109
 msgid "Snow Monkey Diet"
 msgstr "Snow Monkey Diet"
 
 #. Description of the plugin
+#: snow-monkey-diet.php
 msgid "You can stop unused functions of the Snow Monkey."
 msgstr "あなたが Snow Monkey で使用していない機能を無効化できます。"
 
 #. Author of the plugin
+#: snow-monkey-diet.php
 msgid "inc2734"
 msgstr "inc2734"
 
 #. Author URI of the plugin
+#: snow-monkey-diet.php
 msgid "https://2inc.org"
 msgstr "https://2inc.org"
 
@@ -47,8 +50,9 @@ msgstr "https://2inc.org"
 msgid "[Snow Monkey Diet] Needs the Snow Monkey."
 msgstr "[Snow Monkey Diet] Snow Monkey が必要です。"
 
-#. translators: %1$s: version
+#. translators: %1$s: version.
 #: snow-monkey-diet.php:88
+#, php-format
 msgid "[Snow Monkey Diet] Needs the Snow Monkey %1$s or more."
 msgstr "[Snow Monkey Diet] Snow Monkey %1$s 以上が必要です。"
 
@@ -138,5 +142,9 @@ msgid "Disable mobile device browser color"
 msgstr "モバイル端末のブラウザーの色を無効にする"
 
 #: snow-monkey-diet.php:405
+msgid "Disable decorative CSS"
+msgstr "装飾用の CSS を無効化"
+
+#: snow-monkey-diet.php:417
 msgid "Disable Snow Monkey Community section in customizer"
 msgstr "カスタマイザーの「Snow Monkey コミュニティ」セクションを無効化"
