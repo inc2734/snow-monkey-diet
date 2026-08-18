@@ -1,11 +1,11 @@
 {
 	"core": null,
+	"port": 8889,
+	"testsEnvironment": false,
 	"plugins": [
 		"."
 	],
 	"config": {
 		"WP_DEBUG": true
-	},
-	"port": 8889,
-	"testsEnvironment": false
+	}
 }
