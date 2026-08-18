@@ -1,0 +1,11 @@
+{
+	"core": null,
+	"plugins": [
+		"."
+	],
+	"config": {
+		"WP_DEBUG": true
+	},
+	"port": 8889,
+	"testsEnvironment": false
+}

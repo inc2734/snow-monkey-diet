@@ -6,6 +6,7 @@
 	"config": {
 		"WP_DEBUG": true
 	},
+	"testsEnvironment": false,
 	"mappings": {
 		".export": "./.export"
 	}
