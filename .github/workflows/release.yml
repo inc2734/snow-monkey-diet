@@ -44,7 +44,12 @@ jobs:
     - name: Build project
       run: npm run zip
 
-    - name: Create release
-      env:
-        GH_TOKEN: ${{ github.token }}
-      run: gh release create "$GITHUB_REF_NAME" './snow-monkey-diet.zip#snow-monkey-diet.zip' --verify-tag --generate-notes
+    - name: Create Release and upload asset
+      uses: softprops/action-gh-release@v3
+      with:
+        tag_name: ${{ github.ref_name }}
+        files: ./snow-monkey-diet.zip
+        fail_on_unmatched_files: true
+        draft: false
+        prerelease: false
+        generate_release_notes: true
