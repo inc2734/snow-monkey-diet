@@ -1,16 +1,16 @@
 {
 	"engines": {
-		"node": ">=20.19.0",
-		"npm": ">=10.2.3"
+		"node": ">=24.22.1",
+		"npm": ">=11.18.0"
 	},
 	"volta": {
-		"node": "24.18.0"
+		"node": "24.22.1"
 	},
 	"author": "inc2734",
 	"license": "GPL-2.0+",
 	"dependencies": {},
 	"devDependencies": {
-		"@wordpress/env": "^11.13.0",
+		"@wordpress/env": "^12.0.0",
 		"cpy-cli": "^7.0.0",
 		"npm-run-all": "^4.1.5",
 		"rimraf": "^6.1.3"
@@ -35,20 +35,20 @@
 		"test:php:start": "wp-env start --config=.wp-env.tests.json",
 		"test:php:stop": "wp-env stop --config=.wp-env.tests.json",
 		"test-composer": "wp-env run --config=.wp-env.tests.json --env-cwd=\"wp-content/plugins/snow-monkey-diet\" cli composer",
-		"pretest:php:lint": "npm run test:php:start && npm run test-composer -- install",
-		"test:php:lint": "wp-env run --config=.wp-env.tests.json --env-cwd=\"wp-content/plugins/snow-monkey-diet\" wordpress -- vendor/bin/phpcs --standard=.phpcs.xml.dist",
+		"pretest:php:lint": "npm run test:php:start && npm run test-composer install -- --no-interaction",
+		"test:php:lint": "npm run test-composer lint",
 		"posttest:php:lint": "npm run test:php:stop",
-		"test:lint:php": "npm run test:php:lint",
+		"test:lint:php": "npm run test:php:lint || (status=$?; npm run test:php:stop; exit $status)",
 		"test:lint": "npm run test:lint:php",
-		"pretest:php:unit": "npm run test:php:start && npm run test-composer -- install && npm run test-composer -- install-theme",
-		"test:php:unit": "wp-env run --config=.wp-env.tests.json --env-cwd=\"wp-content/plugins/snow-monkey-diet\" wordpress -- vendor/bin/phpunit -c .phpunit.xml.dist --verbose",
+		"pretest:php:unit": "npm run test:php:start && npm run test-composer install -- --no-interaction && npm run test-composer install-theme && cpy '.themes/snow-monkey/src/css/**/*.php' .themes/snow-monkey/assets/css",
+		"test:php:unit": "wp-env run --config=.wp-env.tests.json --env-cwd=wp-content/plugins/snow-monkey-diet wordpress vendor/bin/phpunit -c .phpunit.xml.dist --verbose",
 		"posttest:php:unit": "npm run test:php:stop",
-		"test:unit:php": "npm run test:php:unit",
+		"test:unit:php": "npm run test:php:unit || (status=$?; npm run test:php:stop; exit $status)",
 		"test:unit": "npm run test:unit:php",
 		"test": "run-s test:lint test:unit",
 		"destroy": "wp-env destroy && wp-env destroy --config=.wp-env.tests.json",
 		"clean:zip": "rimraf snow-monkey-diet.zip",
-		"zip:pack": "rsync -a --exclude='/vendor' --exclude='/node_modules' --exclude='.*' --exclude='*.config.js' --exclude='*.xml.dist' --exclude='*.ruleset.xml' --exclude='/bin' --exclude='/tests' --exclude='package*.json' . snow-monkey-diet && wp-env start && npm run composer install -- --no-dev -d snow-monkey-diet",
+		"zip:pack": "rsync -a --exclude='/vendor' --exclude='/node_modules' --exclude='.*' --exclude='*.config.js' --exclude='*.xml.dist' --exclude='*.ruleset.xml' --exclude='/bin' --exclude='/tests' --exclude='package*.json' . snow-monkey-diet && wp-env start && npm run composer install -- --no-interaction --no-dev -d snow-monkey-diet",
 		"zip:archive": "zip -9 -qmr snow-monkey-diet.zip snow-monkey-diet",
 		"zip": "npm run clean:zip && npm run zip:pack && npm run zip:archive",
 		"make-pot": "wp-env start && npm run wp i18n -- make-pot . ./languages/snow-monkey-diet.pot -- --exclude=.*,src",

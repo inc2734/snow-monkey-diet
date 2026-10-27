@@ -26,19 +26,18 @@ jobs:
     - name: Use Node.js
       uses: actions/setup-node@v7
       with:
-        node-version-file: 'package.json'
+        node-version-file: package.json
         cache: npm
-        cache-dependency-path: package-lock.json
 
     - name: Npm install
       run: npm ci
 
     - name: Get Composer Cache Directory
       id: composer-cache
-      run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+      run: echo "dir=$(composer config cache-files-dir)" >> "$GITHUB_OUTPUT"
 
     - name: Cache vendor
-      uses: actions/cache@v5
+      uses: actions/cache@v6
       with:
         path: ${{ steps.composer-cache.outputs.dir }}
         key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
@@ -46,7 +45,7 @@ jobs:
           ${{ runner.os }}-composer-
 
     - name: Composer install
-      run: composer install
+      run: composer install --no-interaction --prefer-dist --no-progress
 
     - name: Running the tests
       run: npm run test
