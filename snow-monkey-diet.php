@@ -620,12 +620,18 @@ class Bootstrap {
 		}
 
 		if ( 1 === $this->_get_option( 'disable-theme-styles' ) ) {
-			$hooks = array( 'wp_enqueue_scripts', 'enqueue_block_assets', 'enqueue_block_editor_assets' );
-			foreach ( $hooks as $hook ) {
+			$hooks = array(
+				'wp_enqueue_scripts'          => 9999,
+				'enqueue_block_assets'        => 9999,
+				'enqueue_block_editor_assets' => 9999,
+				// Run after the theme enqueues global styles and before WordPress prints them at priority 20.
+				'wp_footer'                   => 19,
+			);
+			foreach ( $hooks as $hook => $priority ) {
 				add_action(
 					$hook,
 					function () {
-						global $wp_styles;
+						$wp_styles = wp_styles();
 
 						foreach ( $wp_styles->registered as $handle => $wp_dependency ) {
 							if ( preg_match( '|^snow-monkey-(.+?)-theme$|', $handle ) || 0 === strpos( $handle, 'snow-monkey-theme' ) ) {
@@ -643,7 +649,7 @@ class Bootstrap {
 							}
 						}
 					},
-					9999
+					$priority
 				);
 			}
 		}

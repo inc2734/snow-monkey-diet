@@ -121,6 +121,29 @@ class Bootstrap_Test extends WP_UnitTestCase {
 		$this->assertSame( array( 2 => 'external-test' ), wp_styles()->registered['snow-monkey-test']->deps );
 	}
 
+	public function test_decorative_styles_enqueued_in_the_footer_are_not_printed() {
+		remove_all_actions( 'wp_footer' );
+		add_action( 'wp_footer', 'print_late_styles', 20 );
+		add_action(
+			'wp_footer',
+			function () {
+				wp_enqueue_style( 'snow-monkey-footer-test-theme', '/footer-test-theme.css' );
+				wp_enqueue_style( 'snow-monkey-footer-test', '/footer-test.css', array( 'snow-monkey-footer-test-theme' ) );
+			}
+		);
+
+		$plugin = new Bootstrap();
+		update_option( 'snow-monkey-diet', array( 'disable-theme-styles' => 1 ) );
+		$plugin->_disable();
+
+		ob_start();
+		wp_footer();
+		$footer = ob_get_clean();
+
+		$this->assertStringNotContainsString( 'snow-monkey-footer-test-theme-css', $footer );
+		$this->assertStringContainsString( 'snow-monkey-footer-test-css', $footer );
+	}
+
 	public function style_hooks() {
 		return array(
 			'front end'     => array( 'wp_enqueue_scripts' ),
